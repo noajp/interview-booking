@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面談予約</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', sans-serif; background: #ffffff; min-height: 100vh; }
+        .header { background: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+        .back-button { color: #FF6B00; text-decoration: none; font-size: 24px; line-height: 1; }
+        .header h1 { font-size: 18px; font-weight: 600; color: #1a1a1a; }
+        .container { max-width: 500px; margin: 0 auto; padding: 32px 20px; }
+        .message-box { background: #f8f8f8; border-radius: 16px; padding: 32px 24px; text-align: center; margin-bottom: 24px; }
+        .icon { font-size: 48px; margin-bottom: 16px; }
+        .message-title { font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .message-text { font-size: 14px; color: #666666; line-height: 1.7; }
+        .booking-options { display: flex; flex-direction: column; gap: 12px; }
+        .option-button { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 24px; border-radius: 12px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
+        .option-button.primary { background: #FF6B00; color: white; box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3); }
+        .option-button.primary:hover { background: #E55F00; }
+        .option-button.secondary { background: #ffffff; color: #FF6B00; border: 2px solid #FF6B00; }
+        .option-button.secondary:hover { background: #FFF3E8; }
+        .option-icon { font-size: 20px; }
+        .option-sub { font-size: 12px; font-weight: 400; opacity: 0.9; }
+        .divider { display: flex; align-items: center; gap: 16px; margin: 8px 0; color: #999; font-size: 13px; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e0e0e0; }
+        .note { margin-top: 32px; padding: 16px; background: #FFF3E8; border-radius: 12px; border-left: 4px solid #FF6B00; }
+        .note-title { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .note-text { font-size: 12px; color: #666666; line-height: 1.6; }
+        .job-info { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; margin-bottom: 24px; }
+        .job-info-tag { display: inline-block; background: #FFF3E8; color: #FF6B00; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px; }
+        .job-info-title { font-size: 15px; font-weight: 600; color: #1a1a1a; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="back-button">←</a>
+        <h1>面談予約</h1>
+    </header>
+    <div class="container">
+        <div class="job-info" id="jobInfo">
+            <span class="job-info-tag">在宅可</span>
+            <h2 class="job-info-title">インサイドセールス募集（未経験歓迎）</h2>
+        </div>
+        <div class="message-box">
+            <div class="icon">🎉</div>
+            <h2 class="message-title">エントリーありがとうございます</h2>
+            <p class="message-text">ご希望の方法で<br>面談日時をご予約ください。</p>
+        </div>
+        <div class="booking-options">
+            <a href="tel:+12316254989" class="option-button primary">
+                <span class="option-icon">📞</span>
+                <span>電話で話して予約<br><span class="option-sub">AIが24時間対応します</span></span>
+            </a>
+            <div class="divider">または</div>
+            <a href="#" class="option-button secondary" onclick="alert('Webカレンダー機能は準備中です'); return false;">
+                <span class="option-icon">📅</span>
+                <span>Webカレンダーから選択<br><span class="option-sub">空き状況を見て選ぶ</span></span>
+            </a>
+        </div>
+        <div class="note">
+            <div class="note-title">📌 電話予約の流れ</div>
+            <p class="note-text">お電話いただくと、AIアシスタントがお名前と希望日時をお伺いします。<br>予約完了後、SMSで確認リンクをお送りします。</p>
+        </div>
+    </div>
+    <script>
+        const jobs = {
+            '1': { tag: '在宅可', title: 'インサイドセールス募集（未経験歓迎）' },
+            '2': { tag: '急募', title: 'カスタマーサポート（正社員）' },
+            '3': { tag: '在宅可', title: '営業アシスタント（週3日〜OK）' },
+            '4': { tag: '未経験OK', title: 'データ入力スタッフ（パート）' }
+        };
+        const params = new URLSearchParams(window.location.search);
+        const jobId = params.get('job');
+        if (jobId && jobs[jobId]) {
+            const job = jobs[jobId];
+            document.querySelector('.job-info-tag').textContent = job.tag;
+            document.querySelector('.job-info-title').textContent = job.title;
+        }
+    </script>
+</body>
+</html>
