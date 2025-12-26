@@ -1,83 +1,76 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>面談予約 | Interview Booking</title>
-      <style>
-                * { margin: 0; padding: 0; box-sizing: border-box; }
-                body {
-                              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', sans-serif;
-                              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                              min-height: 100vh;
-                              display: flex;
-                              align-items: center;
-                              justify-content: center;
-                              padding: 20px;
-                }
-                .container {
-                              background: white;
-                              border-radius: 24px;
-                              padding: 48px;
-                              max-width: 500px;
-                              width: 100%;
-                              box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-                              text-align: center;
-                }
-                .logo { font-size: 48px; margin-bottom: 16px; }
-                h1 { font-size: 28px; color: #1a1a2e; margin-bottom: 12px; }
-                .subtitle { color: #666; font-size: 16px; margin-bottom: 32px; line-height: 1.6; }
-                .phone-button {
-                              display: inline-flex;
-                              align-items: center;
-                              justify-content: center;
-                              gap: 12px;
-                              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                              color: white;
-                              text-decoration: none;
-                              padding: 18px 36px;
-                              border-radius: 50px;
-                              font-size: 20px;
-                              font-weight: 600;
-                              transition: transform 0.2s, box-shadow 0.2s;
-                              box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-                }
-                .phone-button:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5); }
-                .phone-button:active { transform: translateY(0); }
-                .phone-icon { font-size: 24px; }
-                .features { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-                .feature { padding: 16px 8px; }
-                .feature-icon { font-size: 32px; margin-bottom: 8px; }
-                .feature-text { font-size: 12px; color: #666; }
-                .note { margin-top: 32px; padding: 16px; background: #f8f9fa; border-radius: 12px; font-size: 13px; color: #666; }
-                .footer { margin-top: 24px; font-size: 12px; color: #999; }
-                @media (max-width: 480px) {
-                              .container { padding: 32px 24px; }
-                              h1 { font-size: 24px; }
-                              .phone-button { padding: 16px 28px; font-size: 18px; }
-                              .features { grid-template-columns: 1fr; gap: 8px; }
-                }
-            </style>
-  </head>
-  <body>
-        <div class="container">
-                  <div class="logo">📞</div>div>
-                  <h1>AI面談予約サービス</h1>
-                <p class="subtitle">24時間いつでも、AIアシスタントが<br>面談のご予約を承ります</p>p>
-                <a href="tel:+12316254989" class="phone-button">
-                            <span class="phone-icon">📱</span>span>
-                            <span>電話で予約する</span>
-                </a>a>
-                <div class="features">
-                            <div class="feature"><div class="feature-icon">🤖</div>div><div class="feature-text">AI自動応答</div>div></div>div>
-                            <div class="feature"><div class="feature-icon">⏰</div>div><div class="feature-text">24時間対応</div>div></div>div>
-                            <div class="feature"><div class="feature-icon">💬</div>div><div class="feature-text">SMS確認</div>div></div>div>
-                </div>div>
-                <div class="note">📌 お電話いただくと、AIアシスタントがお名前と希望日時をお伺いします。予約完了後、SMSで確認リンクをお送りします。</div>div>
-                <div class="footer">© 2024 Interview Booking Service</div>div>
-        </div>div>
-  </body>
-</html>html></span></h1>
-  </body>
-      </style></title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求人一覧</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', sans-serif; background: #ffffff; min-height: 100vh; }
+        .header { background: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 16px 20px; position: sticky; top: 0; z-index: 100; }
+        .header h1 { font-size: 20px; font-weight: 600; color: #1a1a1a; }
+        .container { max-width: 600px; margin: 0 auto; padding: 16px; }
+        .job-list { display: flex; flex-direction: column; gap: 12px; }
+        .job-card { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: block; }
+        .job-card:hover { border-color: #FF6B00; box-shadow: 0 4px 12px rgba(255, 107, 0, 0.1); }
+        .job-card:active { transform: scale(0.98); }
+        .job-tag { display: inline-block; background: #FFF3E8; color: #FF6B00; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; }
+        .job-title { font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; line-height: 1.4; }
+        .job-meta { display: flex; flex-direction: column; gap: 6px; }
+        .job-meta-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #666666; }
+        .job-meta-icon { width: 16px; text-align: center; }
+        .job-arrow { display: flex; align-items: center; justify-content: flex-end; margin-top: 12px; color: #999; font-size: 13px; gap: 4px; }
+        .badge-new { background: #FF6B00; color: white; font-size: 10px; padding: 2px 6px; border-radius: 3px; margin-left: 8px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>求人</h1>
+    </header>
+    <div class="container">
+        <div class="job-list">
+            <a href="booking.html?job=1" class="job-card">
+                <span class="job-tag">在宅可</span>
+                <span class="badge-new">NEW</span>
+                <h2 class="job-title">インサイドセールス募集（未経験歓迎）</h2>
+                <div class="job-meta">
+                    <div class="job-meta-item"><span class="job-meta-icon">💰</span><span>年収 400万〜600万円</span></div>
+                    <div class="job-meta-item"><span class="job-meta-icon">📍</span><span>勤務地：フルリモート</span></div>
+                    <div class="job-meta-item"><span class="job-meta-icon">🕐</span><span>フレックスタイム制</span></div>
+                </div>
+                <div class="job-arrow">面談予約へ進む →</div>
+            </a>
+            <a href="booking.html?job=2" class="job-card">
+                <span class="job-tag">急募</span>
+                <h2 class="job-title">カスタマーサポート（正社員）</h2>
+                <div class="job-meta">
+                    <div class="job-meta-item"><span class="job-meta-icon">💰</span><span>年収 350万〜500万円</span></div>
+                    <div class="job-meta-item"><span class="job-meta-icon">📍</span><span>勤務地：東京都渋谷区</span></div>
+                    <div class="job-meta-item"><span class="job-meta-icon">🕐</span><span>10:00〜19:00</span></div>
+                </div>
+                <div class="job-arrow">面談予約へ進む →</div>
+            </a>
+            <a href="booking.html?job=3" class="job-card">
+                <span class="job-tag">在宅可</span>
+                <h2 class="job-title">営業アシスタント（週3日〜OK）</h2>
+                <div class="job-meta">
+                    <div class="job-meta-item"><span class="job-meta-icon">💰</span><span>時給 1,500円〜2,000円</span></div>
+                    <div class="job-meta-item"><span class="job-meta-icon">📍</span><span>勤務地：フルリモート</span></div>
+                    <div class="job-meta-item"><span class="job-meta-icon">🕐</span><span>週3日〜、1日5時間〜</span></div>
+                </div>
+                <div class="job-arrow">面談予約へ進む →</div>
+            </a>
+            <a href="booking.html?job=4" class="job-card">
+                <span class="job-tag">未経験OK</span>
+                <h2 class="job-title">データ入力スタッフ（パート）</h2>
+                <div class="job-meta">
+                    <div class="job-meta-item"><span class="job-meta-icon">💰</span><span>時給 1,200円〜</span></div>
+                    <div class="job-meta-item"><span class="job-meta-icon">📍</span><span>勤務地：大阪市北区</span></div>
+                    <div class="job-meta-item"><span class="job-meta-icon">🕐</span><span>シフト制</span></div>
+                </div>
+                <div class="job-arrow">面談予約へ進む →</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
